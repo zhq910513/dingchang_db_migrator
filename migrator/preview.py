@@ -1,12 +1,16 @@
 from __future__ import annotations
-import importlib
 import sys
 import json
 from .tables.base_table import preview_rows
 
 TABLE_SRC = {
-    "user": "user",
-    "role": "role",
+  "user": "user",
+  "role": "role",
+  "customer_group": "customer_group",
+  "channel_group": "channel_group",
+  "field_config": "field_config",
+  "field_group": "field_group",
+  "field_group_field": "field_group_field",
 }
 
 def main(argv):

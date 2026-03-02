@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import Dict, Any, List
+from typing import Dict, Any
 from ..config import load_config
 from ..db import connect
 from ..state import get_state, set_state, Watermark
@@ -47,7 +47,6 @@ def upsert_table_strict(src_table: str, tgt_table: str, mode: str, batch_size: i
                 for r in rows:
                     exec_one_strict(cur, upsert_sql, r, row_for_log=r, table_hint=tgt_table)
                     total += 1
-                    # advance watermark per-row, deterministic
                     if wm.mode in ("updated_at","created_at") and wm.mode in r and r[wm.mode] is not None:
                         max_ts = r[wm.mode].strftime("%Y-%m-%d %H:%M:%S")
                         max_id = int(r.get("id") or 0)
@@ -56,7 +55,6 @@ def upsert_table_strict(src_table: str, tgt_table: str, mode: str, batch_size: i
                     wm.last_ts = max_ts
                     wm.last_id = max_id
 
-                # refresh query based on updated watermark
                 where_sql, params, order_sql = build_incremental_where(cols, wm)
                 select_sql = f"SELECT {', '.join('`'+c+'`' for c in cols)} FROM `{src_table}` {where_sql} {order_sql} LIMIT {int(batch_size)}"
 

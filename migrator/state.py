@@ -10,7 +10,7 @@ Mode = Literal["updated_at", "created_at", "id"]
 class Watermark:
     table_name: str
     mode: Mode = "updated_at"
-    last_ts: Optional[str] = None  # 'YYYY-MM-DD HH:MM:SS'
+    last_ts: Optional[str] = None
     last_id: int = 0
 
 def get_state(table_name: str) -> Watermark:

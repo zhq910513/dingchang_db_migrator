@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="842bedb1-e782-4181-8e55-540752da1a86" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/tree-src.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrator/preview.py" beforeDir="false" afterPath="$PROJECT_DIR$/migrator/preview.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrator/runner.py" beforeDir="false" afterPath="$PROJECT_DIR$/migrator/runner.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrator/state.py" beforeDir="false" afterPath="$PROJECT_DIR$/migrator/state.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrator/strict.py" beforeDir="false" afterPath="$PROJECT_DIR$/migrator/strict.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrator/tables/base_table.py" beforeDir="false" afterPath="$PROJECT_DIR$/migrator/tables/base_table.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrator/tables/role.py" beforeDir="false" afterPath="$PROJECT_DIR$/migrator/tables/role.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrator/tables/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/migrator/tables/user.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +26,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="3AOcX7g5gLaJvAoNh80CTC39Rdd" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -28,7 +38,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Projects/dingchang_db_migrator",
+    "last_opened_file_path": "D:/Projects/dingchang_db_migrator/migrator",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -37,6 +47,12 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Projects\dingchang_db_migrator\migrator" />
+      <recent name="D:\Projects\dingchang_db_migrator" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
@@ -45,7 +61,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1772467093821</updated>
-      <workItem from="1772467094988" duration="1023000" />
+      <workItem from="1772467094988" duration="1805000" />
     </task>
     <servers />
   </component>

@@ -1,9 +1,7 @@
 from __future__ import annotations
 import json
-from typing import Dict, Any, List, Iterable
+from typing import Dict, Any
 from pymysql.err import MySQLError
-from .db import connect
-from .config import load_config
 
 def dump_row(row: Dict[str, Any]) -> str:
     def _default(o):

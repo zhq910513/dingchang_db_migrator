@@ -1,6 +1,5 @@
 from __future__ import annotations
 from typing import Dict, Any
-from pymysql.err import MySQLError
 from ..config import load_config
 from ..db import connect
 from ..introspect import common_columns
@@ -63,7 +62,6 @@ def _backfill_parent_id() -> Dict[str, Any]:
     cfg = load_config()
     with connect(cfg) as conn:
         with conn.cursor() as cur:
-            # 逐行回填：先取需要回填的集合（小数据量更安全）；大数据量再升级成批处理
             cur.execute(f"SELECT s.id, s.parent_id FROM `{SRC_TABLE}` s WHERE s.parent_id IS NOT NULL ORDER BY s.id ASC")
             pairs = cur.fetchall()
             sql = f"UPDATE `{TGT_TABLE}` SET parent_id=%(parent_id)s WHERE id=%(id)s"

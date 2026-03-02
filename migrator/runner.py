@@ -5,8 +5,13 @@ import json
 from .state import reset_state
 
 TABLE_MODULE_MAP = {
-    "role": ("migrator.tables.role", "role_new"),
     "user": ("migrator.tables.user", "user_new"),
+    "role": ("migrator.tables.role", "role_new"),
+    "customer_group": ("migrator.tables.customer_group", "customer_group_new"),
+    "channel_group": ("migrator.tables.channel_group", "channel_group_new"),
+    "field_config": ("migrator.tables.field_config", "field_config_new"),
+    "field_group": ("migrator.tables.field_group", "field_group_new"),
+    "field_group_field": ("migrator.tables.field_group_field", "field_group_field_new"),
 }
 
 def run_one(name: str, mode: str):
