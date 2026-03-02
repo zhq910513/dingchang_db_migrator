@@ -74,3 +74,188 @@ docker run --rm --network gateway -v "$PWD":/work -w /work \
 python:3.10-slim bash -lc "pip -q install -r requirements.txt && python -m migrator.preview order"
 
 
+cd /data/backend/dingchang_db_migrator && \
+docker run --rm --network gateway -v "$PWD":/work -w /work \
+-e PYTHONPATH=/work \
+-e MYSQL_HOST=dingchang_mysql -e MYSQL_PORT=3306 -e MYSQL_USER=dingchang_app -e MYSQL_PASSWORD='DingChang@13579*^' \
+-e MYSQL_DB=order_system -e MYSQL_CHARSET=utf8mb4 \
+python:3.10-slim bash -lc "pip -q install -r requirements.txt && python -m migrator.runner full order"
+
+
+
+
+
+
+cd /data/backend/dingchang_db_migrator && \
+docker run --rm --network gateway -v "$PWD":/work -w /work \
+-e MYSQL_HOST=dingchang_mysql -e MYSQL_PORT=3306 -e MYSQL_USER=dingchang_app -e MYSQL_PASSWORD='DingChang@13579*^' \
+-e MYSQL_DB=order_system -e MYSQL_CHARSET=utf8mb4 \
+python:3.10-slim bash -lc "pip -q install -r requirements.txt && python -m migrator.preview order_info"
+
+
+cd /data/backend/dingchang_db_migrator && \
+docker run --rm --network gateway -v "$PWD":/work -w /work \
+-e PYTHONPATH=/work \
+-e MYSQL_HOST=dingchang_mysql -e MYSQL_PORT=3306 -e MYSQL_USER=dingchang_app -e MYSQL_PASSWORD='DingChang@13579*^' \
+-e MYSQL_DB=order_system -e MYSQL_CHARSET=utf8mb4 \
+python:3.10-slim bash -lc "pip -q install -r requirements.txt && python -m migrator.runner full order_info"
+
+
+
+
+
+cd /data/backend/dingchang_db_migrator && \
+docker run --rm --network gateway -v "$PWD":/work -w /work \
+-e MYSQL_HOST=dingchang_mysql -e MYSQL_PORT=3306 -e MYSQL_USER=dingchang_app -e MYSQL_PASSWORD='DingChang@13579*^' \
+-e MYSQL_DB=order_system -e MYSQL_CHARSET=utf8mb4 \
+python:3.10-slim bash -lc "pip -q install -r requirements.txt && python -m migrator.preview image_file"
+
+
+cd /data/backend/dingchang_db_migrator && \
+docker run --rm --network gateway -v "$PWD":/work -w /work \
+-e MYSQL_HOST=dingchang_mysql -e MYSQL_PORT=3306 -e MYSQL_USER=dingchang_app -e MYSQL_PASSWORD='DingChang@13579*^' \
+-e MYSQL_DB=order_system -e MYSQL_CHARSET=utf8mb4 \
+python:3.10-slim bash -lc "pip -q install -r requirements.txt && python -m migrator.runner full image_file"
+
+
+
+
+
+cd /data/backend/dingchang_db_migrator && \
+docker run --rm --network gateway -v "$PWD":/work -w /work \
+-e MYSQL_HOST=dingchang_mysql -e MYSQL_PORT=3306 -e MYSQL_USER=dingchang_app -e MYSQL_PASSWORD='DingChang@13579*^' \
+-e MYSQL_DB=order_system -e MYSQL_CHARSET=utf8mb4 \
+python:3.10-slim bash -lc "pip -q install -r requirements.txt && python -m migrator.preview order_image"
+
+
+cd /data/backend/dingchang_db_migrator && \
+docker run --rm --network gateway -v "$PWD":/work -w /work \
+-e MYSQL_HOST=dingchang_mysql -e MYSQL_PORT=3306 -e MYSQL_USER=dingchang_app -e MYSQL_PASSWORD='DingChang@13579*^' \
+-e MYSQL_DB=order_system -e MYSQL_CHARSET=utf8mb4 \
+python:3.10-slim bash -lc "pip -q install -r requirements.txt && python -m migrator.runner full order_image"
+
+
+
+
+
+cd /data/backend/dingchang_db_migrator && \
+docker run --rm --network gateway -v "$PWD":/work -w /work \
+-e MYSQL_HOST=dingchang_mysql -e MYSQL_PORT=3306 -e MYSQL_USER=dingchang_app -e MYSQL_PASSWORD='DingChang@13579*^' \
+-e MYSQL_DB=order_system -e MYSQL_CHARSET=utf8mb4 \
+python:3.10-slim bash -lc "pip -q install -r requirements.txt && python -m migrator.preview ocr_task"
+
+
+cd /data/backend/dingchang_db_migrator && \
+docker run --rm --network gateway -v "$PWD":/work -w /work \
+-e MYSQL_HOST=dingchang_mysql -e MYSQL_PORT=3306 -e MYSQL_USER=dingchang_app -e MYSQL_PASSWORD='DingChang@13579*^' \
+-e MYSQL_DB=order_system -e MYSQL_CHARSET=utf8mb4 \
+python:3.10-slim bash -lc "pip -q install -r requirements.txt && python -m migrator.runner full ocr_task"
+
+
+
+
+
+cd /data/backend/dingchang_db_migrator && \
+docker run --rm --network gateway -v "$PWD":/work -w /work \
+-e MYSQL_HOST=dingchang_mysql -e MYSQL_PORT=3306 -e MYSQL_USER=dingchang_app -e MYSQL_PASSWORD='DingChang@13579*^' \
+-e MYSQL_DB=order_system -e MYSQL_CHARSET=utf8mb4 \
+python:3.10-slim bash -lc "pip -q install -r requirements.txt && python -m migrator.preview ocr_image_cache"
+
+
+cd /data/backend/dingchang_db_migrator && \
+docker run --rm --network gateway -v "$PWD":/work -w /work \
+-e MYSQL_HOST=dingchang_mysql -e MYSQL_PORT=3306 -e MYSQL_USER=dingchang_app -e MYSQL_PASSWORD='DingChang@13579*^' \
+-e MYSQL_DB=order_system -e MYSQL_CHARSET=utf8mb4 \
+python:3.10-slim bash -lc "pip -q install -r requirements.txt && python -m migrator.runner full ocr_image_cache"
+
+
+
+
+
+cd /data/backend/dingchang_db_migrator && \
+docker run --rm --network gateway -v "$PWD":/work -w /work \
+-e MYSQL_HOST=dingchang_mysql -e MYSQL_PORT=3306 -e MYSQL_USER=dingchang_app -e MYSQL_PASSWORD='DingChang@13579*^' \
+-e MYSQL_DB=order_system -e MYSQL_CHARSET=utf8mb4 \
+python:3.10-slim bash -lc "pip -q install -r requirements.txt && python -m migrator.preview image_ocr_result"
+
+
+cd /data/backend/dingchang_db_migrator && \
+docker run --rm --network gateway -v "$PWD":/work -w /work \
+-e MYSQL_HOST=dingchang_mysql -e MYSQL_PORT=3306 -e MYSQL_USER=dingchang_app -e MYSQL_PASSWORD='DingChang@13579*^' \
+-e MYSQL_DB=order_system -e MYSQL_CHARSET=utf8mb4 \
+python:3.10-slim bash -lc "pip -q install -r requirements.txt && python -m migrator.runner full image_ocr_result"
+
+
+
+
+
+cd /data/backend/dingchang_db_migrator && \
+docker run --rm --network gateway -v "$PWD":/work -w /work \
+-e MYSQL_HOST=dingchang_mysql -e MYSQL_PORT=3306 -e MYSQL_USER=dingchang_app -e MYSQL_PASSWORD='DingChang@13579*^' \
+-e MYSQL_DB=order_system -e MYSQL_CHARSET=utf8mb4 \
+python:3.10-slim bash -lc "pip -q install -r requirements.txt && python -m migrator.preview finance_record"
+
+
+cd /data/backend/dingchang_db_migrator && \
+docker run --rm --network gateway -v "$PWD":/work -w /work \
+-e MYSQL_HOST=dingchang_mysql -e MYSQL_PORT=3306 -e MYSQL_USER=dingchang_app -e MYSQL_PASSWORD='DingChang@13579*^' \
+-e MYSQL_DB=order_system -e MYSQL_CHARSET=utf8mb4 \
+python:3.10-slim bash -lc "pip -q install -r requirements.txt && python -m migrator.runner full finance_record"
+
+
+
+
+
+cd /data/backend/dingchang_db_migrator && \
+docker run --rm --network gateway -v "$PWD":/work -w /work \
+-e MYSQL_HOST=dingchang_mysql -e MYSQL_PORT=3306 -e MYSQL_USER=dingchang_app -e MYSQL_PASSWORD='DingChang@13579*^' \
+-e MYSQL_DB=order_system -e MYSQL_CHARSET=utf8mb4 \
+python:3.10-slim bash -lc "pip -q install -r requirements.txt && python -m migrator.preview user_role"
+
+
+cd /data/backend/dingchang_db_migrator && \
+docker run --rm --network gateway -v "$PWD":/work -w /work \
+-e MYSQL_HOST=dingchang_mysql -e MYSQL_PORT=3306 -e MYSQL_USER=dingchang_app -e MYSQL_PASSWORD='DingChang@13579*^' \
+-e MYSQL_DB=order_system -e MYSQL_CHARSET=utf8mb4 \
+python:3.10-slim bash -lc "pip -q install -r requirements.txt && python -m migrator.runner full user_role"
+
+
+
+
+
+cd /data/backend/dingchang_db_migrator && \
+docker run --rm --network gateway -v "$PWD":/work -w /work \
+-e MYSQL_HOST=dingchang_mysql -e MYSQL_PORT=3306 -e MYSQL_USER=dingchang_app -e MYSQL_PASSWORD='DingChang@13579*^' \
+-e MYSQL_DB=order_system -e MYSQL_CHARSET=utf8mb4 \
+python:3.10-slim bash -lc "pip -q install -r requirements.txt && python -m migrator.preview user_session"
+
+
+cd /data/backend/dingchang_db_migrator && \
+docker run --rm --network gateway -v "$PWD":/work -w /work \
+-e MYSQL_HOST=dingchang_mysql -e MYSQL_PORT=3306 -e MYSQL_USER=dingchang_app -e MYSQL_PASSWORD='DingChang@13579*^' \
+-e MYSQL_DB=order_system -e MYSQL_CHARSET=utf8mb4 \
+python:3.10-slim bash -lc "pip -q install -r requirements.txt && python -m migrator.runner full user_session"
+
+
+
+
+
+mysql> SELECT table_name, mode, last_ts, last_id, updated_at
+    -> FROM migration_state
+    -> ORDER BY table_name;
++----------------------+------------+---------------------+---------+---------------------+
+| table_name           | mode       | last_ts             | last_id | updated_at          |
++----------------------+------------+---------------------+---------+---------------------+
+| channel_group_new    | updated_at | NULL                |     218 | 2026-03-03 00:43:48 |
+| customer_group_new   | updated_at | NULL                |     401 | 2026-03-03 00:41:45 |
+| image_file_new       | updated_at | NULL                |    8220 | 2026-03-03 01:46:21 |
+| image_ocr_result_new | updated_at | NULL                |    6131 | 2026-03-03 01:58:35 |
+| ocr_image_cache_new  | updated_at | NULL                |    6131 | 2026-03-03 01:53:32 |
+| ocr_task_new         | updated_at | NULL                |    2261 | 2026-03-03 01:51:09 |
+| order_image_new      | updated_at | NULL                |    8739 | 2026-03-03 01:48:54 |
+| order_info_new       | updated_at | NULL                |    2466 | 2026-03-03 01:43:44 |
+| order_new            | updated_at | NULL                |    2501 | 2026-03-03 01:40:01 |
+| role_new             | updated_at | NULL                |       5 | 2026-03-03 00:23:01 |
+| user_new             | updated_at | 2026-03-02 07:54:44 |      27 | 2026-03-03 00:20:48 |
+| user_role_new        | updated_at | NULL                |      27 | 2026-03-03 02:04:07 |
+| user_session_new     | updated_at | NULL                |    1296 | 2026-03-03 02:06:49 |
