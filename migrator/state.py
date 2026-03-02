@@ -45,33 +45,3 @@ def reset_state(table_name: str) -> None:
         with conn.cursor() as cur:
             cur.execute("DELETE FROM migration_state WHERE table_name=%s", (table_name,))
         conn.commit()
-
-def show_state() -> list[dict]:
-    cfg = load_config()
-    with connect(cfg) as conn:
-        with conn.cursor() as cur:
-            cur.execute("SELECT table_name, mode, last_ts, last_id, updated_at FROM migration_state ORDER BY table_name")
-            rows = cur.fetchall()
-    out = []
-    for r in rows:
-        out.append({
-            "table_name": r["table_name"],
-            "mode": r["mode"],
-            "last_ts": r["last_ts"].strftime("%Y-%m-%d %H:%M:%S") if r["last_ts"] else None,
-            "last_id": int(r["last_id"] or 0),
-            "updated_at": r["updated_at"].strftime("%Y-%m-%d %H:%M:%S") if r["updated_at"] else None,
-        })
-    return out
-
-if __name__ == "__main__":
-    import sys, json
-    cmd = (sys.argv[1] if len(sys.argv) > 1 else "show").lower()
-    if cmd == "show":
-        print(json.dumps(show_state(), ensure_ascii=False, indent=2))
-    elif cmd == "reset":
-        if len(sys.argv) < 3:
-            raise SystemExit("Usage: python -m migrator.state reset <table_name>")
-        reset_state(sys.argv[2])
-        print("OK")
-    else:
-        raise SystemExit("Usage: python -m migrator.state [show|reset <table_name>]")

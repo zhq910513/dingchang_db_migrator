@@ -50,3 +50,27 @@ python:3.10-slim bash -lc "pip -q install -r requirements.txt && python -m migra
 
 
 
+cd /data/backend/dingchang_db_migrator && \
+docker run --rm --network gateway -v "$PWD":/work -w /work \
+-e MYSQL_HOST=dingchang_mysql -e MYSQL_PORT=3306 -e MYSQL_USER=dingchang_app -e MYSQL_PASSWORD='DingChang@13579*^' \
+-e MYSQL_DB=order_system -e MYSQL_CHARSET=utf8mb4 \
+python:3.10-slim bash -lc "pip -q install -r requirements.txt && python -m migrator.preview channel_group"
+
+
+cd /data/backend/dingchang_db_migrator && \
+docker run --rm --network gateway -v "$PWD":/work -w /work \
+-e MYSQL_HOST=dingchang_mysql -e MYSQL_PORT=3306 -e MYSQL_USER=dingchang_app -e MYSQL_PASSWORD='DingChang@13579*^' \
+-e MYSQL_DB=order_system -e MYSQL_CHARSET=utf8mb4 \
+python:3.10-slim bash -lc "pip -q install -r requirements.txt && python -m migrator.runner full channel_group"
+
+
+
+
+
+cd /data/backend/dingchang_db_migrator && \
+docker run --rm --network gateway -v "$PWD":/work -w /work \
+-e MYSQL_HOST=dingchang_mysql -e MYSQL_PORT=3306 -e MYSQL_USER=dingchang_app -e MYSQL_PASSWORD='DingChang@13579*^' \
+-e MYSQL_DB=order_system -e MYSQL_CHARSET=utf8mb4 \
+python:3.10-slim bash -lc "pip -q install -r requirements.txt && python -m migrator.preview order"
+
+

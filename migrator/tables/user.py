@@ -15,7 +15,6 @@ def _upsert_parent_null(mode: str, batch_size: int) -> Dict[str, Any]:
     cols = common_columns(SRC_TABLE, TGT_TABLE)
     if "parent_id" not in cols:
         raise RuntimeError("Expected parent_id in user tables")
-
     select_cols = [("NULL AS `parent_id`" if c == "parent_id" else f"`{c}`") for c in cols]
     insert_cols_sql = ", ".join('`'+c+'`' for c in cols)
     values_sql = ", ".join(["%("+c+")s" for c in cols])
@@ -51,28 +50,24 @@ def _upsert_parent_null(mode: str, batch_size: int) -> Dict[str, Any]:
                     wm.last_ts = max_ts
                     wm.last_id = max_id
                 where_sql, params, order_sql = build_incremental_where(cols, wm)
-
         conn.commit()
-
     if total:
         set_state(Watermark(table_name=TGT_TABLE, mode=wm.mode, last_ts=max_ts, last_id=max_id))
-    return {"phase": "upsert_parent_null", "rows": total, "last_ts": max_ts, "last_id": max_id}
+    return {"phase":"upsert_parent_null","rows":total,"last_ts":max_ts,"last_id":max_id}
 
 def _backfill_parent_id() -> Dict[str, Any]:
     cfg = load_config()
     with connect(cfg) as conn:
         with conn.cursor() as cur:
-            cur.execute(f"SELECT s.id, s.parent_id FROM `{SRC_TABLE}` s WHERE s.parent_id IS NOT NULL ORDER BY s.id ASC")
+            cur.execute(f"SELECT id, parent_id FROM `{SRC_TABLE}` WHERE parent_id IS NOT NULL ORDER BY id ASC")
             pairs = cur.fetchall()
             sql = f"UPDATE `{TGT_TABLE}` SET parent_id=%(parent_id)s WHERE id=%(id)s"
-            cnt = 0
+            cnt=0
             for p in pairs:
-                exec_one_strict(cur, sql, p, row_for_log=p, table_hint=TGT_TABLE+":parent_id")
+                exec_one_strict(cur, sql, p, row_for_log=p, table_hint=TGT_TABLE+':parent_id')
                 cnt += 1
         conn.commit()
-    return {"phase": "backfill_parent_id", "rows": cnt}
+    return {"phase":"backfill_parent_id","rows":cnt}
 
 def run(mode: str = "updated_at", batch_size: int = BATCH_SIZE_DEFAULT):
-    r1 = _upsert_parent_null(mode, batch_size)
-    r2 = _backfill_parent_id()
-    return {"table": TGT_TABLE, "steps": [r1, r2]}
+    return {"table":TGT_TABLE,"steps":[_upsert_parent_null(mode,batch_size), _backfill_parent_id()]}

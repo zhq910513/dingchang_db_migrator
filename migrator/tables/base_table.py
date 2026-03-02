@@ -54,10 +54,8 @@ def upsert_table_strict(src_table: str, tgt_table: str, mode: str, batch_size: i
                         max_id = int(r["id"])
                     wm.last_ts = max_ts
                     wm.last_id = max_id
-
                 where_sql, params, order_sql = build_incremental_where(cols, wm)
                 select_sql = f"SELECT {', '.join('`'+c+'`' for c in cols)} FROM `{src_table}` {where_sql} {order_sql} LIMIT {int(batch_size)}"
-
         conn.commit()
 
     if total:
